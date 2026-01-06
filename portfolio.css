@@ -433,19 +433,24 @@ body {
 }
 
 .hero-profile-img {
-    width: 90%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s ease;
-    /* Adjust position to align nicely with blob */
-    bottom: 0px;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4)) brightness(1.05) contrast(1.05);
+    transition: transform 0.4s ease;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+    transform: scale(1.1) translateY(-10px);
 }
 
 .hero-image-container:hover .hero-profile-img {
-    transform: scale(1.03) translateY(-5px);
+    transform: scale(1.15) translateY(-20px);
+    box-shadow: none;
+    /* Shadow is handled by drop-shadow filter */
+    border-color: transparent;
 }
 
 .hero-floating-icon {

@@ -382,98 +382,114 @@ body {
     color: var(--text-muted);
 }
 
-/* Hero Visual - Code Window */
+/* Hero Visual - Profile Image */
 .hero-visual {
     flex: 1;
-    max-width: 500px;
+    max-width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     animation: fadeInRight 0.8s ease 0.3s forwards;
     opacity: 0;
 }
 
-.code-window {
-    background: var(--bg-secondary);
+.hero-image-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-blob {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: blobBounce 8s ease-in-out infinite;
+    z-index: 0;
+    opacity: 0.9;
+    box-shadow: 0 20px 50px rgba(168, 85, 247, 0.4);
+}
+
+@keyframes blobBounce {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hero-profile-img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+    /* Adjust position to align nicely with blob */
+    bottom: 0px;
+}
+
+.hero-image-container:hover .hero-profile-img {
+    transform: scale(1.03) translateY(-5px);
+}
+
+.hero-floating-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--glass-bg);
     border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
     border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-glow);
-}
-
-.window-header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    background: var(--bg-tertiary);
-    border-bottom: 1px solid var(--border-color);
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: floatIcon 4s ease-in-out infinite;
 }
 
-.window-dots {
-    display: flex;
-    gap: 8px;
+.hero-floating-icon svg {
+    color: var(--accent-primary);
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+.icon-1 {
+    top: 20%;
+    left: 0;
+    animation-delay: 0s;
 }
 
-.dot.red {
-    background: #ff5f57;
+.icon-2 {
+    bottom: 20%;
+    right: 0;
+    animation-delay: 2s;
 }
 
-.dot.yellow {
-    background: #febc2e;
-}
+@keyframes floatIcon {
 
-.dot.green {
-    background: #28c840;
-}
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-.window-title {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-left: auto;
-}
-
-.code-content {
-    padding: 24px;
-    font-family: 'Fira Code', 'Monaco', monospace;
-    font-size: 0.9rem;
-    line-height: 1.8;
-    overflow-x: auto;
-}
-
-.code-content code {
-    color: var(--text-secondary);
-}
-
-.keyword {
-    color: #c678dd;
-}
-
-.class-name {
-    color: #e5c07b;
-}
-
-.function {
-    color: #61afef;
-}
-
-.self {
-    color: #e06c75;
-}
-
-.string {
-    color: #98c379;
-}
-
-.boolean {
-    color: #d19a66;
-}
-
-.cursor {
-    animation: blink 1s step-end infinite;
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 /* Terminal Styles */
@@ -542,7 +558,7 @@ body {
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 60px;
-    align-items: start;
+    align-items: center;
 }
 
 .about-text p {
@@ -556,73 +572,116 @@ body {
     color: var(--accent-primary);
 }
 
-.about-image {
+.about-visual {
     display: flex;
     justify-content: center;
-}
-
-.image-container {
     position: relative;
-    width: 280px;
-    height: 280px;
 }
 
-.image-placeholder {
-    width: 100%;
-    height: 100%;
+/* Restored Code Window Styles for About Section */
+.code-window {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-glow);
+    width: 100%;
+}
+
+.window-header {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.window-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f57;
+}
+
+.dot.yellow {
+    background: #febc2e;
+}
+
+.dot.green {
+    background: #28c840;
+}
+
+.window-title {
+    font-size: 0.85rem;
     color: var(--text-muted);
-    position: relative;
-    z-index: 2;
-    transition: var(--transition-smooth);
+    margin-left: auto;
 }
 
-.image-placeholder svg {
-    opacity: 0.5;
+.code-content {
+    padding: 24px;
+    font-family: 'Fira Code', 'Monaco', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    overflow-x: auto;
 }
 
-.image-placeholder span {
-    font-weight: 600;
+.code-content code {
     color: var(--text-secondary);
 }
 
-.image-border {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--accent-primary);
-    border-radius: 16px;
-    z-index: 1;
-    transition: var(--transition-smooth);
+/* Terminal Colors Re-enforcement */
+.terminal .prompt {
+    color: #22c55e;
+    font-weight: 600;
 }
 
-.image-container:hover .image-border {
-    top: 12px;
-    left: 12px;
+.terminal .path {
+    color: #3b82f6;
+}
+
+.terminal .command {
+    color: #f8fafc;
+}
+
+.terminal .output {
+    color: #a1a1aa;
+    display: block;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+
+/* Glow Effect */
+.image-bg-shape {
+    display: none;
 }
 
 .profile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 16px;
-    position: relative;
-    z-index: 2;
+    object-position: center top;
+    border-radius: 50%;
+    display: block;
     transition: var(--transition-smooth);
-    filter: grayscale(20%);
 }
 
-.profile-img:hover {
-    filter: grayscale(0%);
+.image-container:hover {
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.5);
+}
+
+.image-container:hover .profile-img {
     transform: scale(1.02);
 }
 

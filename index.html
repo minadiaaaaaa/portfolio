@@ -97,28 +97,23 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="code-window">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <span class="window-title">~/pentesting</span>
+            <div class="hero-image-container">
+                <div class="hero-blob"></div>
+                <img src="profile-removebg-preview.png" alt="Mina Diaa" class="hero-profile-img">
+                <div class="hero-floating-icon icon-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                    </svg>
                 </div>
-                <pre class="code-content terminal"><code><span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">nmap -sV -sC target.com</span>
-<span class="output">Starting Nmap scan...</span>
-<span class="output">PORT    STATE  SERVICE</span>
-<span class="output">22/tcp  open   ssh</span>
-<span class="output">80/tcp  open   http</span>
-<span class="output">443/tcp open   https</span>
-
-<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">nuclei -t cves/ -u target.com</span>
-<span class="output">[CVE-2024-XXXX] [critical] target.com</span>
-
-<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">burpsuite --project pentest</span>
-<span class="output">[*] Proxy listening on 127.0.0.1:8080</span>
-<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="cursor">|</span></code></pre>
+                <div class="hero-floating-icon icon-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
@@ -149,12 +144,30 @@
                         researching new attack vectors, or contributing to the security community.
                     </p>
                 </div>
-                <div class="about-image">
-                    <div class="image-container">
-                        <img src="profile.jpg" alt="Mina Diaa" class="profile-img">
-                        <div class="image-border"></div>
+                <div class="about-visual">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="window-title">~/pentesting</span>
+                        </div>
+                        <pre class="code-content terminal"><code><span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">nmap -sV -sC target.com</span>
+<span class="output">Starting Nmap scan...</span>
+<span class="output">PORT    STATE  SERVICE</span>
+<span class="output">22/tcp  open   ssh</span>
+<span class="output">80/tcp  open   http</span>
+<span class="output">443/tcp open   https</span>
+
+<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">nuclei -t cves/ -u target.com</span>
+<span class="output">[CVE-2024-XXXX] [critical] target.com</span>
+
+<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="cursor">|</span></code></pre>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

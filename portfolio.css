@@ -476,6 +476,24 @@ body {
     animation: blink 1s step-end infinite;
 }
 
+/* Terminal Styles */
+.terminal .prompt {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.terminal .path {
+    color: #3b82f6;
+}
+
+.terminal .command {
+    color: #f8fafc;
+}
+
+.terminal .output {
+    color: #a1a1aa;
+}
+
 @keyframes blink {
 
     0%,

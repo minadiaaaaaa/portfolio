@@ -104,20 +104,21 @@
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="window-title">hunter.py</span>
+                    <span class="window-title">~/pentesting</span>
                 </div>
-                <pre class="code-content"><code><span class="keyword">class</span> <span class="class-name">BugHunter</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="self">self</span>):
-        <span class="self">self</span>.name = <span class="string">"Mina Diaa"</span>
-        <span class="self">self</span>.role = <span class="string">"Pen Tester & Bug Hunter"</span>
-        <span class="self">self</span>.tools = [<span class="string">"Burp"</span>, <span class="string">"Nmap"</span>, <span class="string">"Nuclei"</span>]
-        <span class="self">self</span>.motto = <span class="string">"Find. Report. Secure."</span>
-    
-    <span class="keyword">def</span> <span class="function">hunt</span>(<span class="self">self</span>):
-        <span class="keyword">while</span> <span class="boolean">True</span>:
-            <span class="self">self</span>.recon()
-            <span class="self">self</span>.find_vulns()
-            <span class="self">self</span>.report_bugs()<span class="cursor">|</span></code></pre>
+                <pre class="code-content terminal"><code><span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">nmap -sV -sC target.com</span>
+<span class="output">Starting Nmap scan...</span>
+<span class="output">PORT    STATE  SERVICE</span>
+<span class="output">22/tcp  open   ssh</span>
+<span class="output">80/tcp  open   http</span>
+<span class="output">443/tcp open   https</span>
+
+<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">nuclei -t cves/ -u target.com</span>
+<span class="output">[CVE-2024-XXXX] [critical] target.com</span>
+
+<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="command">burpsuite --project pentest</span>
+<span class="output">[*] Proxy listening on 127.0.0.1:8080</span>
+<span class="prompt">mina@kali</span>:<span class="path">~</span>$ <span class="cursor">|</span></code></pre>
             </div>
         </div>
     </section>

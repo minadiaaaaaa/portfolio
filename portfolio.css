@@ -1170,6 +1170,16 @@ body {
        Let's keep it standard. */
 
     .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        /* Limit width for nicer look */
         justify-content: center;
     }
 
@@ -1181,7 +1191,9 @@ body {
         max-width: 100%;
         margin-top: 40px;
         order: 2;
-        /* Image below text */
+        /* Ensure image isn't clipped */
+        padding-bottom: 20px;
+        overflow: visible;
     }
 
     .hero-image-container {
@@ -1239,9 +1251,19 @@ body {
         font-size: 2rem;
     }
 
+    .hero {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
     .hero-image-container {
-        width: 280px;
-        height: 280px;
+        width: 260px;
+        height: 260px;
+        margin-bottom: 20px;
     }
 
     .hero-floating-icon {

@@ -1159,7 +1159,15 @@ body {
 
     .hero-content {
         max-width: 100%;
+        order: 1;
+        /* Ensure text comes after image (or change to -1 to keep text on top) */
+        margin-top: 20px;
     }
+
+    /* Keep Hero text on top on mobile/tablet if desired, or image on top.
+       Usually image first looks good, but let's stick to standard flow: Text then Image? 
+       Actually, `flex-direction: column` puts first child (content) on top. 
+       Let's keep it standard. */
 
     .hero-buttons {
         justify-content: center;
@@ -1171,14 +1179,25 @@ body {
 
     .hero-visual {
         max-width: 100%;
+        margin-top: 40px;
+        order: 2;
+        /* Image below text */
+    }
+
+    .hero-image-container {
+        width: 350px;
+        height: 350px;
     }
 
     .about-content {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
-    .about-image {
-        order: -1;
+    .about-visual {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
     }
 
     .project-card.featured {
@@ -1220,8 +1239,25 @@ body {
         font-size: 2rem;
     }
 
+    .hero-image-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hero-floating-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .hero-floating-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
     .hero-stats {
         gap: 24px;
+        flex-wrap: wrap;
+        /* Allow stats to wrap if screen is very small */
     }
 
     .stat-number {
